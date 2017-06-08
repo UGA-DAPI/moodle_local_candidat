@@ -1,8 +1,9 @@
-//this will get called when Moodle builds the settings block.
-//adds a link to the bottom of the course administration section of the settings block.
+
 
 <?php
 
+//this will get called when Moodle builds the settings block.
+//adds a link to the bottom of the course administration section of the settings block.
 function local_candidat_extend_settings_navigation($settingsnav, $context) {
     global $CFG, $PAGE;
  
@@ -34,5 +35,11 @@ function local_candidat_extend_settings_navigation($settingsnav, $context) {
     }
 }
 
+//Removing the "candidat" link from the navigation menu
+function local_candidat_extend_navigation(global_navigation $navigation) {
+    if ($candidat = $navigation->find('candidat', global_navigation::TYPE_SETTING)) {
+        $candidat->remove();
+    }
+}
 
 ?>
