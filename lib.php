@@ -19,7 +19,7 @@ function local_candidat_extend_settings_navigation($settingsnav, $context) {
  
     if ($settingnode = $settingsnav->find('courseadmin', navigation_node::TYPE_COURSE)) {
         $strfoo = get_string('candidat', 'local_candidat');
-        $url = new moodle_url('/local/candidat/candidat.php', array('id' => $PAGE->course->id));
+        $url = new moodle_url('/local/candidat/index.php', array('id' => $PAGE->course->id));
         $foonode = navigation_node::create(
             $strfoo,
             $url,
