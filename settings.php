@@ -26,3 +26,11 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
 }
+
+
+if ($hassiteconfig) { // Needs this condition or there is error on login page.
+    $ADMIN->add('root', new admin_externalpage('local_candidat',
+            get_string('pluginname', 'local_candidat'),
+            new moodle_url('/local/candidat/index.php')));
+}
+?>

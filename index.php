@@ -1,13 +1,14 @@
 <?php
 
 // Required files.
-//require_once(__DIR__ . '/config.php');
-require_once('../../config.php');
+
+require_once(__DIR__ . '/../../config.php');
+//require_once('../../config.php');
 
 // Required and optional parameters.
-$id = required_param('id', PARAM_INT);
+//$id = required_param('id', PARAM_INT);
 $text = optional_param('text', '', PARAM_ALPHA);
- 
+
 // Setting context for the page.
 $PAGE->set_context(context_system::instance());
 // URL is created and then set for the page navigation.
