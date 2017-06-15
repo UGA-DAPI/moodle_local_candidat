@@ -2,7 +2,7 @@
 
 <?php
 
-//this will get called when Moodle builds the settings block.
+/*//this will get called when Moodle builds the settings block.
 //adds a link to the bottom of the course administration section of the settings block.
 function local_candidat_extend_settings_navigation($settingsnav, $context) {
     global $CFG, $PAGE;
@@ -19,7 +19,7 @@ function local_candidat_extend_settings_navigation($settingsnav, $context) {
  
     if ($settingnode = $settingsnav->find('courseadmin', navigation_node::TYPE_COURSE)) {
         $strfoo = get_string('candidat', 'local_candidat');
-        $url = new moodle_url('/local/candidat/index.php', array('id' => $PAGE->course->id));
+        $url = new moodle_url('/local/candidat/candidat.php', array('id' => $PAGE->course->id));
         $foonode = navigation_node::create(
             $strfoo,
             $url,
@@ -40,6 +40,12 @@ function local_candidat_extend_navigation(global_navigation $navigation) {
     if ($candidat = $navigation->find('candidat', global_navigation::TYPE_SETTING)) {
         $candidat->remove();
     }
+}
+*/
+function local_candidat_extend_navigation_course($navigation, $course, $coursecontext) {
+    $url = new moodle_url('/local/candidat/index.php');
+    $devcoursenode = navigation_node::create('Development course', $url, navigation_node::TYPE_CUSTOM, 'Dev course', 'devcourse');
+    $navigation->add_node($devcoursenode);
 }
 
 ?>
